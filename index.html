@@ -1,430 +1,846 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jorge Gallo — Backend &amp; Full-Stack Engineer</title>
+<meta name="description" content="Backend and full-stack engineer in Bogotá, Colombia. Java and Spring Boot, Node.js and NestJS, Angular, Python. Digital banking platforms at Banco Davivienda and Grupo Bolívar. Open to remote roles across LatAm and U.S. time zones.">
+<meta name="author" content="Jorge Gallo">
+<link rel="canonical" href="https://jorgedanielgallo.github.io/">
 
-  <title>Jorge Gallo</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jorge Gallo — Backend &amp; Full-Stack Engineer">
+<meta property="og:description" content="Backend systems for money movement, built to be auditable. Java · Spring Boot · NestJS · Angular · Python. Bogotá, Colombia (UTC−05:00).">
+<meta property="og:url" content="https://jorgedanielgallo.github.io/">
+<meta name="twitter:card" content="summary">
 
-  <!-- Favicons -->
-  <link href="assets/img/log_js.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231F6B47'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23F2F4F1' text-anchor='middle'%3EJG%3C/text%3E%3C/svg%3E">
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@500;600&display=swap">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<style>
+/* ── Tokens ─────────────────────────────────────────────────────────────── */
+:root {
+  --bg:        #F1F4F0;
+  --surface:   #FAFBF9;
+  --ink:       #15201A;
+  --ink-2:     #33413A;
+  --muted:     #5D6D64;
+  --rule:      #D3DBD4;
+  --rule-soft: #E3E9E3;
+  --accent:    #1F6B47;
+  --accent-2:  #145034;
+  --accent-bg: #E2EEE6;
+  --shadow:    0 1px 0 var(--rule);
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  --f-display: "Spectral", Georgia, "Times New Roman", serif;
+  --f-body:    "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --measure: 62ch;
+  --page:    1060px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0E1311;
+    --surface:   #151B18;
+    --ink:       #E7EDE8;
+    --ink-2:     #C3CDC6;
+    --muted:     #92A19A;
+    --rule:      #262F2A;
+    --rule-soft: #1C2320;
+    --accent:    #5BC38C;
+    --accent-2:  #83D7A9;
+    --accent-bg: #16261D;
+    --shadow:    0 1px 0 var(--rule);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:        #0E1311;
+  --surface:   #151B18;
+  --ink:       #E7EDE8;
+  --ink-2:     #C3CDC6;
+  --muted:     #92A19A;
+  --rule:      #262F2A;
+  --rule-soft: #1C2320;
+  --accent:    #5BC38C;
+  --accent-2:  #83D7A9;
+  --accent-bg: #16261D;
+  --shadow:    0 1px 0 var(--rule);
+  color-scheme: dark;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; }
+
+p { margin: 0; }
+
+::selection { background: var(--accent-bg); color: var(--ink); }
+
+/* ── Ledger label ───────────────────────────────────────────────────────── */
+.label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Masthead ───────────────────────────────────────────────────────────── */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+}
+
+.masthead .wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+  padding-block: 14px;
+}
+
+.wordmark {
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.masthead nav {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.masthead nav a {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.masthead nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.theme-toggle {
+  appearance: none;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-2);
+  border-radius: 2px;
+  width: 30px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle svg { width: 14px; height: 14px; display: block; }
+.theme-toggle .moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .sun  { display: none; }
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────── */
+section {
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 66px; /* clear the sticky masthead when jumping to an anchor */
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 34px 8px;
+}
+
+.section-head h2 { font-size: 15px; letter-spacing: 0.02em; }
+.section-head .count { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); margin-left: auto; }
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero { padding-block: 56px 48px; }
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+  flex: none;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5.2vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  max-width: 17ch;
+  margin-bottom: 24px;
+}
+
+.hero h1 em { font-style: normal; color: var(--accent); }
+
+.hero .lede {
+  max-width: var(--measure);
+  font-size: 17px;
+  color: var(--ink-2);
+  margin-bottom: 30px;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  padding: 9px 15px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--ink);
+  background: var(--surface);
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--bg); }
+
+/* Ledger strip of facts */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  border-top: 1px solid var(--rule);
+  margin-top: 44px;
+}
+
+.facts div {
+  padding: 14px 0 2px;
+  border-right: 1px solid var(--rule-soft);
+  padding-right: 16px;
+}
+
+.facts div:last-child { border-right: 0; }
+
+.facts dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.facts dd {
+  margin: 4px 0 0;
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* ── Work ledger ────────────────────────────────────────────────────────── */
+.ledger { margin: 0; padding: 0 0 34px; list-style: none; }
+
+.entry {
+  border-top: 1px solid var(--rule-soft);
+  padding-block: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 8px 32px;
+  transition: background .15s ease;
+}
+
+.entry:first-child { border-top: 1px solid var(--rule); }
+
+.entry-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; grid-column: 1; }
+
+.entry-head h3 {
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.entry-head .kind {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.entry-body { grid-column: 1; max-width: var(--measure); }
+.entry-body p { color: var(--ink-2); margin-bottom: 12px; }
+
+.entry-body ul { margin: 0; padding-left: 0; list-style: none; }
+
+.entry-body li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.entry-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.entry-meta {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-top: 3px;
+}
+
+.stack { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.stack span {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.repo-link {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease;
+}
+
+.repo-link:hover { border-bottom-color: var(--accent); }
+
+.note {
+  max-width: var(--measure);
+  font-size: 14px;
+  color: var(--muted);
+  padding-bottom: 34px;
+}
+
+/* ── Experience ─────────────────────────────────────────────────────────── */
+.roles { margin: 0; padding: 0 0 34px; list-style: none; }
+
+.role {
+  border-top: 1px solid var(--rule-soft);
+  padding-block: 20px;
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 4px 32px;
+}
+
+.role:first-child { border-top: 1px solid var(--rule); }
+
+.role .when {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  padding-top: 3px;
+}
+
+.role h3 { font-family: var(--f-body); font-size: 16px; font-weight: 600; }
+.role .org { font-family: var(--f-mono); font-size: 12.5px; color: var(--accent); margin-top: 2px; }
+.role p { font-size: 15px; color: var(--ink-2); margin-top: 8px; max-width: var(--measure); }
+
+/* ── Toolkit ────────────────────────────────────────────────────────────── */
+.toolkit {
+  margin: 0;
+  padding-bottom: 34px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 32px;
+}
+
+.toolkit > div {
+  border-top: 1px solid var(--rule-soft);
+  padding-block: 16px;
+}
+
+.toolkit dt { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.toolkit dd { margin: 6px 0 0; font-size: 15px; color: var(--ink-2); }
+
+/* ── About + contact ────────────────────────────────────────────────────── */
+.prose { max-width: var(--measure); padding-bottom: 34px; }
+.prose p { margin-bottom: 14px; color: var(--ink-2); }
+.prose p:last-child { margin-bottom: 0; }
+.prose a { border-bottom: 1px solid var(--accent-bg); }
+.prose a:hover { border-bottom-color: var(--accent); }
+
+.contact-list { margin: 0; padding-bottom: 34px; list-style: none; display: grid; gap: 0; max-width: 620px; }
+
+.contact-list li {
+  border-top: 1px solid var(--rule-soft);
+  padding-block: 13px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-list li:first-child { border-top: 1px solid var(--rule); }
+.contact-list .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); min-width: 92px; }
+.contact-list a { font-family: var(--f-mono); font-size: 14px; border-bottom: 1px solid transparent; }
+.contact-list a:hover { border-bottom-color: var(--accent); }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer { padding-block: 26px 42px; }
+
+footer .wrap {
+  display: flex;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+footer .wrap span:last-child { margin-left: auto; }
+
+/* ── Narrow screens ─────────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .entry-meta { grid-column: 1; grid-row: auto; padding-top: 4px; }
+  .role { grid-template-columns: minmax(0, 1fr); }
+  .role .when { padding-top: 0; }
+  .facts div { border-right: 0; }
+  .masthead nav { gap: 16px; }
+  footer .wrap span:last-child { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+html { scroll-behavior: smooth; }
+</style>
 </head>
 
 <body>
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Jorge Gallo</h1>
-      <p>I'm a <span class="typed" data-typed-items="Developer, Problem solver, Freelancer"></span></p>
+
+<header class="masthead">
+  <div class="wrap">
+    <span class="wordmark">Jorge Gallo</span>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.5"></circle>
+          <path d="M12 1.8v2.4M12 19.8v2.4M4.2 12H1.8M22.2 12h-2.4M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3L5.6 5.6"></path>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8z"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section id="top">
+    <div class="wrap hero">
+      <p class="eyebrow label"><span class="dot"></span>Open to remote roles · LatAm and U.S. time zones</p>
+
+      <h1>Backend engineering for systems where <em>being wrong is expensive</em>.</h1>
+
+      <p class="lede">
+        Six years in engineering, four of them building production web applications — three and a
+        half across Grupo Bolívar and Banco Davivienda, on digital banking platforms. I work in
+        Java and Spring Boot, Node.js and NestJS, Angular and Python, with a bias toward explicit
+        boundaries, honest failure handling, and systems that stay debuggable at three in the morning.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#work">See the work</a>
+        <!-- Drop your PDF at /cv/Jorge-Gallo-CV.pdf, or remove this button. -->
+        <a class="btn" href="cv/Jorge-Gallo-CV.pdf">Résumé (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/jorge-daniel-gallo-sanabria/" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/jorgedanielgallo" rel="noopener">GitHub</a>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Bogotá, Colombia</dd></div>
+        <div><dt>Time zone</dt><dd>UTC−05:00</dd></div>
+        <div><dt>Engineering since</dt><dd>2020</dd></div>
+        <div><dt>Languages</dt><dd>Spanish · English C1</dd></div>
+      </dl>
     </div>
-  </section><!-- End Hero -->
+  </section>
 
-  <main>
+  <!-- ── Work ─────────────────────────────────────────────────────────── -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <span class="count">Five open-source projects</span>
+      </div>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+      <p class="note">
+        Personal reference implementations, not employer code. The first three run together as one
+        system: a ledger, the service that delivers its events to external partners, and the console
+        that operates both. Each repository's README opens with the problem and spends most of its
+        length on the design decisions and their trade-offs.
+      </p>
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>Hello! My name is Jorge Gallo, and I am a Full Stack developer with 4 years of experience, based in Bogotá, Colombia. I hold a bachelor's degree in Mechatronics Engineering from <a href="https://unal.edu.co/">Universidad Nacional de Colombia</a>. 
-            My passion lies in development using technologies such as Node.js, Python, and C#. I have focused my work on both web and mobile application development.</p>
-        </div>
+      <ul class="ledger">
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile_picture_square.jpeg" class="img-fluid" alt="">
+        <li class="entry">
+          <div class="entry-head">
+            <h3>ledger-core</h3>
+            <span class="kind">Service</span>
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Full Stack Developer &amp;Mechatronic Engineer</h3>
-            <p class="font-italic">
-              Some of my info
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 22 Dec 1996</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> jorgedanielgallo.github.io/</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +57 319 251 3437</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Bogota, Colombia</li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> 27</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> Bachelor's degree</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> gallojorge@outlook.com</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> Available</li>
-                </ul>
-              </div>
-            </div>
+          <div class="entry-body">
+            <p>A double-entry accounting ledger: accounts, deposits, withdrawals, transfers and reversals over an append-only journal.</p>
+            <ul>
+              <li>Money in minor units with per-currency scale — never a floating-point amount.</li>
+              <li>Idempotent writes: a repeated <code>Idempotency-Key</code> replays the stored response instead of posting twice.</li>
+              <li>Corrections are mirrored reversal entries, never mutations — the journal stays auditable.</li>
+              <li>Hexagonal layering, with domain logic that imports nothing from Spring.</li>
+            </ul>
+          </div>
+          <div class="entry-meta">
+            <div class="stack"><span>Java 21</span><span>Spring Boot 3</span><span>PostgreSQL</span><span>Flyway</span></div>
+            <a class="repo-link" href="https://github.com/jorgedanielgallo/ledger-core" rel="noopener">Repository&nbsp;↗</a>
+          </div>
+        </li>
+
+        <li class="entry">
+          <div class="entry-head">
+            <h3>payments-integration-hub</h3>
+            <span class="kind">Service</span>
+          </div>
+          <div class="entry-body">
+            <p>The delivery layer between a core banking system and external partners, built around the assumption that partners fail.</p>
+            <ul>
+              <li>Transactional outbox: events are committed with the data that produced them, then dispatched.</li>
+              <li>At-least-once delivery with exponential backoff and jitter, and idempotent consumers on the other side.</li>
+              <li>A circuit breaker per partner, so one slow endpoint cannot drain the worker pool.</li>
+              <li>A dead-letter queue with manual replay and discard, instead of retrying forever.</li>
+            </ul>
+          </div>
+          <div class="entry-meta">
+            <div class="stack"><span>NestJS</span><span>TypeScript</span><span>TypeORM</span><span>PostgreSQL</span></div>
+            <a class="repo-link" href="https://github.com/jorgedanielgallo/payments-integration-hub" rel="noopener">Repository&nbsp;↗</a>
+          </div>
+        </li>
+
+        <li class="entry">
+          <div class="entry-head">
+            <h3>ledger-console</h3>
+            <span class="kind">Interface</span>
+          </div>
+          <div class="entry-body">
+            <p>The operator console for both services — the screens a back-office team would actually use to move money and unblock deliveries.</p>
+            <ul>
+              <li>Standalone components, signals and zoneless change detection; no NgModules anywhere.</li>
+              <li>An interceptor chain owns correlation IDs, idempotency keys and retry-with-backoff, so no feature has to remember them.</li>
+              <li>The idempotency key is minted per user action, not per HTTP attempt — which is the whole point of it.</li>
+              <li>A mock backend ships in the repository, so <code>npm start</code> gives a working app with nothing else running.</li>
+            </ul>
+          </div>
+          <div class="entry-meta">
+            <div class="stack"><span>Angular 21</span><span>TypeScript</span><span>Material</span><span>RxJS</span></div>
+            <a class="repo-link" href="https://github.com/jorgedanielgallo/ledger-console" rel="noopener">Repository&nbsp;↗</a>
+          </div>
+        </li>
+
+        <li class="entry">
+          <div class="entry-head">
+            <h3>rag-policy-assistant</h3>
+            <span class="kind">Service</span>
+          </div>
+          <div class="entry-body">
+            <p>A retrieval service that answers questions over a policy corpus and refuses to answer anything it cannot cite.</p>
+            <ul>
+              <li>Hybrid retrieval — BM25 and vector search fused with Reciprocal Rank Fusion — because either half alone loses cases the other catches.</li>
+              <li>Citations are parsed and verified against what was actually retrieved, not trusted because the model produced them.</li>
+              <li>The language model sits behind a port, so the interesting engineering is testable without an API key.</li>
+              <li>An evaluation harness runs in CI: a drop in retrieval recall fails the build like any other regression.</li>
+            </ul>
+          </div>
+          <div class="entry-meta">
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>Pydantic v2</span><span>NumPy</span></div>
+            <a class="repo-link" href="https://github.com/jorgedanielgallo/rag-policy-assistant" rel="noopener">Repository&nbsp;↗</a>
+          </div>
+        </li>
+
+        <li class="entry">
+          <div class="entry-head">
+            <h3>fabric-migration-toolkit</h3>
+            <span class="kind">Tooling</span>
+          </div>
+          <div class="entry-body">
+            <p>A command-line toolkit for moving Power BI workloads onto Microsoft Fabric, written after doing the same migration by hand.</p>
+            <ul>
+              <li>A real lexer, parser and AST for Power Query M — regex substitution silently produces wrong transformations.</li>
+              <li>Translation emits PySpark source rather than executing Spark, so a human reviews the diff before anything runs.</li>
+              <li>TMDL models are parsed and re-serialised, so renaming a column cascades through every measure and relationship.</li>
+              <li>Unsupported constructs fail loudly and name themselves instead of passing through quietly.</li>
+            </ul>
+          </div>
+          <div class="entry-meta">
+            <div class="stack"><span>Python</span><span>Power Query M</span><span>TMDL</span><span>PySpark</span></div>
+            <a class="repo-link" href="https://github.com/jorgedanielgallo/fabric-migration-toolkit" rel="noopener">Repository&nbsp;↗</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Experience ───────────────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <span class="count">2020 — present</span>
+      </div>
+
+      <ol class="roles">
+        <li class="role">
+          <span class="when">Jun 2026 — Sep 2026</span>
+          <div>
+            <h3>Full-Stack Developer <span style="font-weight:400; color:var(--muted)">(contract)</span></h3>
+            <p class="org">Rootstack · Panama City — Hybrid</p>
             <p>
-              <!-- Maybe some data here -->
+              Built Python and PySpark pipelines on Microsoft Fabric, migrating legacy Power Query
+              transformations into ETL/ELT architectures on Delta Lake, and automated Power BI asset
+              migration with PBIP, PBIR and TMDL to replace a manual, error-prone process.
             </p>
           </div>
-        </div>
+        </li>
 
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="skills" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>As a seasoned software developer and architect, I bring a wealth of experience and expertise to the table. 
-            My journey in the software industry has equipped me with a diverse skill set and a deep understanding of 
-            both development and architectural principles.</p>
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="icofont-computer"></i>
-              <span data-toggle="counter-up">5</span>
-              <p><strong>+ Programming Languages </strong> 
-                Java, C#, Python, TypeScript, C++, among others!</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="icofont-dashboard-web"></i>
-              <span data-toggle="counter-up">10</span>
-              <p><strong>Frameworks</strong> 
-              SpringBoot, .NET, Django, NestJS, Express.js, Angular, React, among others</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="icofont-cloudapp"></i>
-              <span data-toggle="counter-up">3</span>
-              <p><strong>Cloud Computing Platforms</strong>
-                AWS, Azure & Google Cloud Platform</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="icofont-users-alt-5"></i>
-              <span data-toggle="counter-up">15</span>
-              <p><strong>Projects</strong>  Leading and designing in agile development teams </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Throughout my career, I’ve had the opportunity to work across a wide range of technologies, allowing 
-            me to adapt quickly to new environments and contribute effectively to diverse projects. Below is a list 
-            of the programming languages and technologies I’ve worked with:</p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Java/SpringBoot <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript/NodeJS/Express.js <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">C#/.NET <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">HTML + CSS + Angular <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">AWS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">GCP/Azure <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">SQL/MongoDB <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- End Skills Section -->
-
-    <!-- ======= Services Section ======= -->
-    <!-- ======= Portfolio Section ======= -->
-    <!-- <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p> In this section you can see some projects that i been part of.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="icofont-racings-wheel"></i></div>
-            <h4 class="title"><a href="mecanum_wheel.html">Mecanum wheels</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-              occaecati cupiditate non provident.
-              <img src="assets/img/mecanum_wheel.png" class="img-fluid" alt="">
-              <iframe width="392" height="220" src="https://www.youtube.com/embed/ddvDGAzXieI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </p>
-            
-
-          </div>
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="icofont-wheat"></i></div>
-            <h4 class="title"><a href="support.html">Support system for an agriculture robot</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat tarad limino ata
-              <img src="assets/img/CERES_dos_subsystem.png" class="img-fluid" alt="">
-              <iframe width="392" height="220" src="https://www.youtube.com/embed/ddvDGAzXieI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <li class="role">
+          <span class="when">Sep 2023 — Feb 2026</span>
+          <div>
+            <h3>Agile Software Architect · Full-Stack Developer</h3>
+            <p class="org">Banco Davivienda S.A. (Grupo Bolívar) · Remote</p>
+            <p>
+              Designed application architecture and infrastructure for web-based digital banking
+              products, including the Davivienda SuperApp. Built and maintained Java and Spring Boot
+              services and Node.js integrations between core banking systems and external partners,
+              defined integration contracts with cross-functional teams, and operated services on AWS
+              through CI/CD pipelines. Promoted from Full-Stack Developer to Agile Software Architect.
             </p>
           </div>
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="icofont-dog-alt"></i></div>
-            <h4 class="title"><a href="to.html">To - Quadruped robot</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur
-              <img src="assets/img/to_8.png" class="img-fluid" alt="">
+        </li>
+
+        <li class="role">
+          <span class="when">Oct 2022 — Sep 2023</span>
+          <div>
+            <h3>Junior Full-Stack Developer</h3>
+            <p class="org">Grupo Bolívar S.A. · Remote</p>
+            <p>
+              Backend services for enterprise web applications in Java, Node.js and C#/.NET; REST APIs
+              and persistence layers across SQL Server, MongoDB and DynamoDB; responsive Angular front
+              ends, with deployments on AWS, GCP and Azure.
             </p>
           </div>
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="icofont-image"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="icofont-settings"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-              voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="icofont-tasks-alt"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-              soluta nobis est eligendi</p>
-          </div>
-        </div>
+        </li>
 
+        <li class="role">
+          <span class="when">Jan 2020 — Sep 2022</span>
+          <div>
+            <h3>Automation Systems Engineer</h3>
+            <p class="org">Instrumentos &amp; Controles S.A. (IYCSA) / West Engineering S.A.S. · Bogotá</p>
+            <p>
+              Control logic, system integrations and data flows for mission-critical industrial systems
+              in the oil and gas sector — where a defect has a physical consequence and there is no
+              rolling back a deploy.
+            </p>
+          </div>
+        </li>
+
+        <li class="role">
+          <span class="when">Jan 2020</span>
+          <div>
+            <h3>B.Sc. Mechatronics Engineering</h3>
+            <p class="org">Universidad Nacional de Colombia · Bogotá</p>
+            <p>“Best High School Graduates” merit scholarship for top national exam scores, 2014–2019.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Toolkit ──────────────────────────────────────────────────────── -->
+  <section id="toolkit">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Toolkit</h2>
+        <span class="count">What I reach for</span>
       </div>
-    </section>End Services Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+      <dl class="toolkit">
+        <div><dt>Languages</dt><dd>Java · TypeScript · JavaScript · Python · C# · SQL</dd></div>
+        <div><dt>Backend</dt><dd>Spring Boot · Spring Data JPA · Hibernate · NestJS · Node.js · Express · FastAPI · .NET</dd></div>
+        <div><dt>Frontend</dt><dd>Angular · Angular Material · PrimeNG · RxJS · React</dd></div>
+        <div><dt>Data</dt><dd>PostgreSQL · SQL Server · Oracle · MySQL · MongoDB · DynamoDB · Delta Lake</dd></div>
+        <div><dt>Cloud &amp; delivery</dt><dd>AWS (EC2, S3, Lambda, RDS, IAM, API Gateway) · Azure · GCP · Docker · Jenkins · GitHub Actions</dd></div>
+        <div><dt>Design</dt><dd>Clean and hexagonal architecture · Microservices · Event-driven design · SOLID · API design</dd></div>
+        <div><dt>Testing</dt><dd>JUnit · Mockito · Jest · Vitest · pytest · Postman</dd></div>
+        <div><dt>Data engineering</dt><dd>Microsoft Fabric · PySpark · Spark SQL · Power BI · ETL/ELT pipelines</dd></div>
+      </dl>
+    </div>
+  </section>
 
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Let me know any questions .</p>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <h4 class="title">
-                  <a href="https://www.linkedin.com/in/jorge-daniel-gallo-sanabria/" target="_blank" rel="noopener noreferrer">
-                      <div class="icon"><i class="icofont-linkedin"></i></div>
-                  </a>
-                  <p>
-                      <a href="https://www.linkedin.com/in/jorge-daniel-gallo-sanabria/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  </p>
-              </h4>
-          </div>
+  <!-- ── About ────────────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><h2>About</h2></div>
 
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <h4 class="title">
-                  <a href="https://github.com/jorgedanielgallo" target="_blank" rel="noopener noreferrer">
-                      <div class="icon"><i class="icofont-github"></i></i>
-                          </i>
-                      </div>
-                  </a>
-                  <p>
-                      <a href="https://github.com/jorgedanielgallo" target="_blank" rel="noopener noreferrer">Git Hub</a>
-                  </p>
-              </h4>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <h4 class="title">
-                  <a href="https://www.instagram.com/galloj22/" target="_blank" rel="noopener noreferrer">
-                      <div class="icon"><i class="icofont-instagram"></i></div>
-                  </a>
-                  <p>
-                      <a href="https://www.instagram.com/galloj22/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                  </p>
-              </h4>
-          </div> 
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <h4 class="title">
-                <a href="https://wa.me/573192513437" target="_blank" rel="noopener noreferrer">
-                    <div class="icon"><i class="icofont-whatsapp"></i></div>
-                </a>
-                <p>
-                    <a href="https://wa.me/573192513437" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                </p>
-            </h4>
-        </div>
-          
-        </div>
-        <!-- <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email"
-                    data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4"
-                  data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required"
-                  data-msg="Please write something for us"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
-        </div> -->
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <!-- footer id="footer">
-    <div class="container">
-      <div class="credits">Designed & Developed by <a href="https://www.incubateind.com/">IncubateIND</a> with ❤️
+      <div class="prose">
+        <p>
+          I came to software from industrial automation. My first two and a half years were spent on
+          instrumentation and control systems for oil and gas, where a defect is not a stack trace —
+          it is a valve in the wrong position. That is where I learned to care about verification
+          before deployment, and it is still how I think about backend work.
+        </p>
+        <p>
+          Since 2022 I have worked in banking: first at Grupo Bolívar, then at Banco Davivienda, one
+          of Colombia's largest financial institutions, where I moved from building services to
+          designing the architecture around them. Banking gave me the other half of the discipline —
+          idempotency, auditability, integration contracts that survive contact with a partner's
+          production environment.
+        </p>
+        <p>
+          I am currently looking for a remote backend, full-stack or AI-engineering role with a team
+          that takes correctness seriously. The projects above are where I keep that thinking in the
+          open. Certifications: Platzi (AWS Cloud Practitioner course, Professional DevOps,
+          Professional Software Architecture), Coursera — University of Michigan (Python for
+          Everybody), EF SET English C1.
+        </p>
       </div>
     </div>
-  </footer> -->
-  <!-- End  Footer -->
+  </section>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <!-- ── Contact ──────────────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <span class="count">Email is fastest</span>
+      </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/counterup/counterup.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+      <ul class="contact-list">
+        <li><span class="k">Email</span><a href="mailto:gallojorge@outlook.com">gallojorge@outlook.com</a></li>
+        <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/jorge-daniel-gallo-sanabria/" rel="noopener">jorge-daniel-gallo-sanabria</a></li>
+        <li><span class="k">GitHub</span><a href="https://github.com/jorgedanielgallo" rel="noopener">jorgedanielgallo</a></li>
+        <li><span class="k">Location</span><span style="font-family:var(--f-mono);font-size:14px;color:var(--ink-2)">Bogotá, Colombia · UTC−05:00</span></li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jorge Gallo</span>
+    <span>One static HTML file, no framework</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+
+  function stored() {
+    try { return localStorage.getItem('theme'); } catch (e) { return null; }
+  }
+
+  function save(value) {
+    try { localStorage.setItem('theme', value); } catch (e) { /* private mode */ }
+  }
+
+  var saved = stored();
+  if (saved === 'dark' || saved === 'light') {
+    root.setAttribute('data-theme', saved);
+  }
+
+  btn.addEventListener('click', function () {
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var current = root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    save(next);
+  });
+})();
+</script>
 
 </body>
-
 </html>
