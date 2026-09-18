@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found — Jorge Gallo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231F6B47'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23F2F4F1' text-anchor='middle'%3EJG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400&family=Spectral:wght@600&display=swap">
+<style>
+:root {
+  --bg: #F1F4F0; --ink: #15201A; --ink-2: #33413A; --muted: #5D6D64;
+  --rule: #D3DBD4; --accent: #1F6B47;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1311; --ink: #E7EDE8; --ink-2: #C3CDC6; --muted: #92A19A;
+    --rule: #262F2A; --accent: #5BC38C;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.6;
+  display: grid; place-items: center; padding: 24px 20px;
+}
+main { max-width: 480px; }
+.code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 22px;
+}
+h1 {
+  font-family: "Spectral", Georgia, serif; font-weight: 600;
+  font-size: clamp(26px, 6vw, 36px); line-height: 1.15; margin: 0 0 14px;
+}
+p { margin: 0 0 24px; color: var(--ink-2); }
+a {
+  font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px;
+  color: var(--accent); text-decoration: none;
+  border: 1px solid var(--rule); border-radius: 2px; padding: 9px 15px;
+  display: inline-block;
+}
+a:hover { border-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="code">Error 404 · Page not found</p>
+  <h1>That page isn’t here.</h1>
+  <p>The link is either out of date or was never right. Everything on this site lives on one page.</p>
+  <a href="/">Back to the homepage</a>
+</main>
+</body>
+</html>

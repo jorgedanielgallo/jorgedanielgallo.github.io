@@ -1,0 +1,9 @@
+Copia aquí tu CV en PDF con el nombre exacto:
+
+    Jorge-Gallo-CV.pdf
+
+Es la ruta a la que apunta el botón "Résumé (PDF)" del sitio.
+Si prefieres no publicar el CV, borra esta carpeta y quita esa línea
+de index.html (está marcada con un comentario).
+
+Luego borra este archivo.
